@@ -1,0 +1,54 @@
+<mat-card class="addStForm">
+  <mat-card-title>Create Student</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="addStudentForm" (submit)="addStudent()">
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Student Id</mat-label>
+          <input
+            matInput
+            placeholder="Student Id"
+            formControlName="StudentId"
+          />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>First Name</mat-label>
+          <input matInput placeholder="First Name" formControlName="fName" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Last Name</mat-label>
+          <input matInput placeholder="Last Name" formControlName="lName" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Date Of Birth</mat-label>
+          <input matInput placeholder="Date Of Birth" formControlName="DOB" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline">
+          <mat-label>Address</mat-label>
+          <input matInput placeholder="Address" formControlName="Address" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </p>
+
+      <p>
+        <button mat-raised-button color="primary">Add Student</button>
+      </p>
+    </form>
+  </mat-card-content>
+</mat-card>
