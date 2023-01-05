@@ -7,26 +7,30 @@ import { Injectable } from '@angular/core';
 export class StudentService {
   baseUrl: string = 'http://localhost:5000/api/SampleProject/Student/';
 
-  constructor(private htpp: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   listStudents() {
-    return this.htpp.get(this.baseUrl + 'SelectAllStudents');
+    return this.http.get(this.baseUrl + 'SelectAllStudents');
   }
 
   viewStudent(id: string) {
-    return this.htpp.get(this.baseUrl + 'SelectById/?StudentId=' + id);
+    return this.http.get(this.baseUrl + 'SelectById/?StudentId=' + id);
   }
 
   addStudent(studentObj: any) {
     console.log(studentObj);
-    return this.htpp.post(this.baseUrl + 'AddStudent', studentObj);
+    return this.http.post(this.baseUrl + 'AddStudent', studentObj);
   }
 
   deleteStudent(id: string) {
-    return this.htpp.delete(this.baseUrl + 'DeleteStudent/?StudentId=' + id);
+    return this.http.delete(this.baseUrl + 'DeleteStudent/?StudentId=' + id);
   }
 
-  updateStudent(id: string) {
-    return this.htpp.put(this.baseUrl + 'UpdateStudent/?StudentId=', id);
+  updateStudent(id: string, studentObj: any) {
+    console.log(id);
+    return this.http.put(
+      this.baseUrl + 'UpdateStudent/?StudentId=' + id,
+      studentObj
+    );
   }
 }

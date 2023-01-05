@@ -10,7 +10,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -30,6 +33,9 @@ import { RouterModule } from '@angular/router';
     MatInputModule,
     ReactiveFormsModule,
     RouterModule,
+    MatTableModule,
+    MatSnackBarModule,
+    MatPaginatorModule
   ],
   exports: [
     AddStudentComponent,

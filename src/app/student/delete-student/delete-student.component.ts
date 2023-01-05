@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StudentService } from 'src/app/services/student.service';
 
@@ -12,7 +13,8 @@ export class DeleteStudentComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private studentService: StudentService,
-    private router: Router
+    private router: Router,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -24,11 +26,11 @@ export class DeleteStudentComponent implements OnInit {
     if (this.studentId) {
       this.studentService.deleteStudent(this.studentId).subscribe(
         (data) => {
-          console.log('Deleted student');
-          this.router.navigate(['']);
+          this._snackBar.open('Student deleted successfully ');
+          this.router.navigate(['student']);
         },
         (err) => {
-          console.log('Error deleting student');
+          this._snackBar.open('Error deleting student   ❌');
         }
       );
     }

@@ -1,1 +1,62 @@
-<p>update-student works!</p>
+<mat-card>
+  <div *ngIf="dataLoaded">
+    <mat-card-title>Update Student</mat-card-title>
+    <mat-card-content style="padding-top: 20px">
+      <form [formGroup]="editStudentForm" (submit)="updateStudent()">
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Student Id</mat-label>
+            <input
+              matInput
+              placeholder="Student Id"
+              formControlName="StudentId"
+            />
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput placeholder="First Name" formControlName="fName" />
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput placeholder="Last Name" formControlName="lName" />
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Date Of Birth</mat-label>
+            <input
+              type="date"
+              matInput
+              placeholder="Date Of Birth"
+              formControlName="DateOfBirth"
+            />
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput placeholder="Address" formControlName="Address" />
+          </mat-form-field>
+        </p>
+
+        <p>
+          <button
+            mat-raised-button
+            color="primary"
+            [disabled]="!editStudentForm.valid"
+          >
+            Update Student
+          </button>
+        </p>
+      </form>
+    </mat-card-content>
+  </div>
+</mat-card>

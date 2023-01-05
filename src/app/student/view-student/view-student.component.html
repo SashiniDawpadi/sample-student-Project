@@ -1,5 +1,33 @@
-<p>view-student works!</p>
+<mat-card class="user-details" *ngIf="studentDetails">
+  <mat-card-title class="header">
+    Student Details of
+    {{ studentDetails[0].studentId }}</mat-card-title
+  >
+  <br />
+  <div class="content">
+    <mat-card-content>
+      <b>First Name :</b>{{ studentDetails[0].fName }}<br /><br />
+      <b>Last Name :</b>{{ studentDetails[0].lName }}<br /><br />
+      <b>Date Of Birth :</b
+      >{{ studentDetails[0].dateOfBirth | date : "longDate" }}<br /><br />
+      <b>Address :</b>{{ studentDetails[0].address }}<br /><br />
+    </mat-card-content>
 
-<mat-card *ngIf="studentDetails" class="studentDet">
-  {{ studentDetails[0].studentId }}</mat-card
->
+    <mat-card-actions class="text-right action-link">
+      <button mat-raised-button class="button-update" color="primary">
+        <a
+          class="action-link"
+          [routerLink]="['/student/update', studentDetails[0].studentId]"
+          >Update</a
+        >
+      </button>
+      <button mat-raised-button class="button-delete" color="warn">
+        <a
+          class="action-link"
+          [routerLink]="['/student/delete/', studentDetails[0].studentId]"
+          >Delete</a
+        >
+      </button>
+    </mat-card-actions>
+  </div>
+</mat-card>

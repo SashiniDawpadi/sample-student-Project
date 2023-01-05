@@ -1,6 +1,65 @@
-<button mat-raised-button color="primary">Add Student</button>
-<ul>
-  <li *ngFor="let student of listStudents">
-    {{ student.fName }}
-  </li>
-</ul>
+<mat-card-title>Student CRUD App</mat-card-title>
+<br />
+<div class="btn-column">
+  <button mat-raised-button routerLink="addStudent" color="primary">
+    + Add New Student
+  </button>
+</div>
+
+<div class="column">
+  <mat-card class="card" role="list">
+    <table  class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col" width="260px">Student Id</th>
+          <th scope="col" width="260px">First Name</th>
+          <th scope="col" width="260px">Last Name</th>
+          <th scope="col" width="260px">Date Of Birth</th>
+          <th scope="col" width="260px">Address</th>
+        </tr>
+      </thead>
+      <br />
+      <tbody>
+        <tr *ngFor="let student of listStudents" [routerLink]="['view/', student.studentId]">
+          <td width="260px">
+            <span class="sId"
+              ><a
+                class="action-link"
+                
+                >{{ student.studentId }}</a
+              ></span
+            >
+          </td>
+          <td width="260px">
+            <span class="fName">{{ student.fName }}</span>
+          </td>
+          <td width="260px">
+            <span class="lName">{{ student.lName }}</span>
+          </td>
+          <td width="260px">
+            <span class="DOB">{{
+              student.dateOfBirth | date : "longDate"
+            }}</span>
+          </td>
+          <td width="260px">
+            <span class="add">{{ student.address }}</span>
+          </td>
+          <td [routerLink]="['/student/update', student.studentId]">
+            <mat-icon class="edit-icon">edit</mat-icon>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td [routerLink]="['/student/delete/', student.studentId]">
+            <mat-icon class="delete-icon">delete</mat-icon>
+          </td>
+          <td></td>
+        </tr>
+       
+      </tbody>
+      
+    </table>
+  </mat-card>
+</div>

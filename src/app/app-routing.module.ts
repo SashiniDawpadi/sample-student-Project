@@ -7,11 +7,18 @@ import { ViewStudentListComponent } from './student/view-student-list/view-stude
 import { ViewStudentComponent } from './student/view-student/view-student.component';
 
 const routes: Routes = [
-  { path: '', component: ViewStudentListComponent },
-  { path: 'addStudent', component: AddStudentComponent },
-  { path: 'update/:id', component: UpdateStudentComponent },
-  { path: 'delete/:id', component: DeleteStudentComponent },
-  { path: 'view/:id', component: ViewStudentComponent },
+  {
+    path: 'student',
+    children: [
+      { path: '', component: ViewStudentListComponent },
+      { path: 'list', component: ViewStudentListComponent },
+      { path: 'addStudent', component: AddStudentComponent },
+      { path: 'delete/:id', component: DeleteStudentComponent },
+      { path: 'update/:id', component: UpdateStudentComponent },
+      { path: 'view/:id', component: ViewStudentComponent },
+    ],
+  },
+  {path:'' , component: ViewStudentListComponent}
 ];
 
 @NgModule({

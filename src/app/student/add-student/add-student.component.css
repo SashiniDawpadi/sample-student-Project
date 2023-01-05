@@ -1,4 +1,23 @@
-.addStForm {
-  margin: 20px;
-  position: center;
+.form-card {
+  width: 500px;
+  display: block;
+  }
+
+.mat-form-field {
+  width: 100%;
+
 }
+
+.mat-card {
+  margin-top: 40px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.mat-card-title {
+  text-align: center;
+  font-size: 35px;
+}
+
