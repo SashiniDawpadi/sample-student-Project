@@ -26,10 +26,11 @@ export class DeleteStudentComponent implements OnInit {
     if (this.studentId) {
       this.studentService.deleteStudent(this.studentId).subscribe(
         (data) => {
-          this._snackBar.open('Student deleted successfully ');
-          this.router.navigate(['student']);
+          this.router.navigate(['']);
+          this._snackBar.open('Student deleted successfully  ✅');
         },
         (err) => {
+          this.router.navigate(['']);
           this._snackBar.open('Error deleting student   ❌');
         }
       );

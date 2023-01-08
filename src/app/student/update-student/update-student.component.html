@@ -11,13 +11,18 @@
               placeholder="Student Id"
               formControlName="StudentId"
             />
-          </mat-form-field>
+            <mat-error *ngIf ="editStudentForm.controls['StudentId'].errors && editStudentForm.controls['StudentId'].hasError('required')">Student ID is required</mat-error>
+            
+             </mat-form-field>
         </p>
 
         <p>
           <mat-form-field appearance="outline">
             <mat-label>First Name</mat-label>
             <input matInput placeholder="First Name" formControlName="fName" />
+            <mat-error *ngIf ="editStudentForm.controls['fName'].errors && editStudentForm.controls['fName'].hasError('required')">First Name is required</mat-error>
+          <mat-error *ngIf ="editStudentForm.controls['fName'].errors && editStudentForm.controls['fName'].hasError('maxlength')">First Name can't exceed 20 characters</mat-error>
+        
           </mat-form-field>
         </p>
 
@@ -25,6 +30,8 @@
           <mat-form-field appearance="outline">
             <mat-label>Last Name</mat-label>
             <input matInput placeholder="Last Name" formControlName="lName" />
+            <mat-error *ngIf ="editStudentForm.controls['lName'].errors && editStudentForm.controls['lName'].hasError('required')">Last Name is required</mat-error>
+            <mat-error *ngIf ="editStudentForm.controls['lName'].errors && editStudentForm.controls['lName'].hasError('maxlength')">Last Name can't exceed 20 characters</mat-error>
           </mat-form-field>
         </p>
 
@@ -36,7 +43,11 @@
               matInput
               placeholder="Date Of Birth"
               formControlName="DateOfBirth"
+              [max]="maxDate"
+              [matDatepicker]="picker"
             />
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf ="editStudentForm.controls['DateOfBirth'].errors && editStudentForm.controls['DateOfBirth'].hasError('required')">Date of Birth is required</mat-error> 
           </mat-form-field>
         </p>
 
@@ -44,6 +55,9 @@
           <mat-form-field appearance="outline">
             <mat-label>Address</mat-label>
             <input matInput placeholder="Address" formControlName="Address" />
+            <mat-error *ngIf ="editStudentForm.controls['Address'].errors && editStudentForm.controls['Address'].hasError('required')">Address is required</mat-error>
+            <mat-error *ngIf ="editStudentForm.controls['Address'].errors && editStudentForm.controls['Address'].hasError('maxlength')">Address can't exceed 100 characters</mat-error>
+        
           </mat-form-field>
         </p>
 

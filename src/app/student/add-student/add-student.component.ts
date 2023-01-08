@@ -25,26 +25,36 @@ export class AddStudentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.getToday();
     this.addStudentForm = this.formBuilder.group({
-      StudentId: new FormControl('', [Validators.required]),
-      fName: new FormControl('', [Validators.required]),
-      lName: new FormControl('', [Validators.required]),
+      StudentId: new FormControl('', [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(10),
+      ]),
+      fName: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(20),
+      ]),
+      lName: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(20),
+      ]),
       DateOfBirth: new FormControl('', [Validators.required]),
-      Address: new FormControl('', [Validators.required]),
+      Address: new FormControl('', [
+        Validators.required,
+        Validators.maxLength(100),
+      ]),
     });
   }
-  maxDate: any = '';
-  getToday() {
-    var date: any = new Date();
-    this.maxDate = date.getDate();
-  }
+
+  maxDate: Date = new Date();
+
   addStudent() {
     this.studentService.addStudent(this.addStudentForm.value).subscribe(
       (data) => {
-        this._snackBar.open('Student added successfully');
+        this._snackBar.open('Student added successfully  ✅');
 
-        this.router.navigateByUrl('student');
+        this.router.navigateByUrl('');
       },
       (err) => {
         this._snackBar.open(err.error.data.message);

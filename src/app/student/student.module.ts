@@ -13,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { RouterModule } from '@angular/router';
 
 @NgModule({
@@ -35,7 +35,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     MatTableModule,
     MatSnackBarModule,
-    MatPaginatorModule
+    MatDatepickerModule,
   ],
   exports: [
     AddStudentComponent,

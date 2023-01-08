@@ -40,27 +40,27 @@ export class UpdateStudentComponent implements OnInit {
         .then((data) => {
           this.studentDetails = data;
           this.studentDetails = JSON.parse(this.studentDetails.data);
-          // Object.assign(this.studentDetails, data);
+
           console.log(this.studentDetails);
 
           this.editStudentForm = this.formBuilder.group({
             StudentId: new FormControl(this.studentDetails[0].studentId, [
               Validators.required,
-              Validators.minLength(3),
             ]),
             fName: new FormControl(this.studentDetails[0].fName, [
               Validators.required,
-              Validators.minLength(4),
+              Validators.maxLength(20),
             ]),
             lName: new FormControl(this.studentDetails[0].lName, [
               Validators.required,
-              Validators.minLength(4),
+              Validators.maxLength(20),
             ]),
             DateOfBirth: new FormControl(this.studentDetails[0].dateOfBirth, [
               Validators.required,
             ]),
             Address: new FormControl(this.studentDetails[0].address, [
               Validators.required,
+              Validators.maxLength(100),
             ]),
           });
           this.dataLoaded = true;
@@ -70,14 +70,23 @@ export class UpdateStudentComponent implements OnInit {
         });
     }
   }
-
+  maxDate: Date = new Date();
   updateStudent() {
     this.studentService
       .updateStudent(this.stuId, this.editStudentForm.value)
-      .subscribe((data) => {
-        console.log(data);
-        this._snackBar.open('Student updated successfully');
-        this.router.navigateByUrl('/student');
-      });
+      .subscribe(
+        (data) => {
+          if (this.stuId != this.editStudentForm.value.StudentId) {
+            this._snackBar.open(` Can't update the StudentId `);
+            return;
+          }
+
+          this._snackBar.open('Student updated successfully  ✅');
+          this.router.navigateByUrl('');
+        },
+        (err) => {
+          this._snackBar.open(err.error.data.message);
+        }
+      );
   }
 }

@@ -1,14 +1,14 @@
 <mat-card-title>Student CRUD App</mat-card-title>
 <br />
 <div class="btn-column">
-  <button mat-raised-button routerLink="addStudent" color="primary">
+  <button mat-raised-button routerLink="addStudent" color="primary" class="addBtn">
     + Add New Student
   </button>
 </div>
 
 <div class="column">
   <mat-card class="card" role="list">
-    <table  class="table table-hover">
+    <table class="table table-hover">
       <thead>
         <tr>
           <th scope="col" width="260px">Student Id</th>
@@ -20,14 +20,13 @@
       </thead>
       <br />
       <tbody>
-        <tr *ngFor="let student of listStudents" [routerLink]="['view/', student.studentId]">
+        <tr
+          *ngFor="let student of listStudents"
+          [routerLink]="['/view/', student.studentId]"
+        >
           <td width="260px">
             <span class="sId"
-              ><a
-                class="action-link"
-                
-                >{{ student.studentId }}</a
-              ></span
+              ><a class="action-link">{{ student.studentId }}</a></span
             >
           </td>
           <td width="260px">
@@ -44,7 +43,7 @@
           <td width="260px">
             <span class="add">{{ student.address }}</span>
           </td>
-          <td [routerLink]="['/student/update', student.studentId]">
+          <td [routerLink]="['/update', student.studentId]">
             <mat-icon class="edit-icon">edit</mat-icon>
           </td>
           <td></td>
@@ -52,14 +51,12 @@
           <td></td>
           <td></td>
           <td></td>
-          <td [routerLink]="['/student/delete/', student.studentId]">
+          <td [routerLink]="['/delete/', student.studentId]">
             <mat-icon class="delete-icon">delete</mat-icon>
           </td>
           <td></td>
         </tr>
-       
       </tbody>
-      
     </table>
   </mat-card>
 </div>

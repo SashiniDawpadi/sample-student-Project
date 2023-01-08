@@ -8,7 +8,7 @@ import { ViewStudentComponent } from './student/view-student/view-student.compon
 
 const routes: Routes = [
   {
-    path: 'student',
+    path: '',
     children: [
       { path: '', component: ViewStudentListComponent },
       { path: 'list', component: ViewStudentListComponent },
@@ -18,7 +18,6 @@ const routes: Routes = [
       { path: 'view/:id', component: ViewStudentComponent },
     ],
   },
-  {path:'' , component: ViewStudentListComponent}
 ];
 
 @NgModule({
