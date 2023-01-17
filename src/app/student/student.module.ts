@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AddStudentComponent } from './add-student/add-student.component';
-import { UpdateStudentComponent } from './update-student/update-student.component';
+
 import { DeleteStudentComponent } from './delete-student/delete-student.component';
 import { ViewStudentComponent } from './view-student/view-student.component';
 import { ViewStudentListComponent } from './view-student-list/view-student-list.component';
@@ -15,14 +14,14 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { RouterModule } from '@angular/router';
+import { AddEditStudentComponent } from './add-edit-student/add-edit-student.component';
 
 @NgModule({
   declarations: [
-    AddStudentComponent,
-    UpdateStudentComponent,
     DeleteStudentComponent,
     ViewStudentComponent,
     ViewStudentListComponent,
+    AddEditStudentComponent,
   ],
   imports: [
     CommonModule,
@@ -38,8 +37,6 @@ import { RouterModule } from '@angular/router';
     MatDatepickerModule,
   ],
   exports: [
-    AddStudentComponent,
-    UpdateStudentComponent,
     DeleteStudentComponent,
     ViewStudentComponent,
     ViewStudentListComponent,
