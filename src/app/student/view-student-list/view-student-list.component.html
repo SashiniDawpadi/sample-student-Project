@@ -21,7 +21,7 @@
       <br />
       <tbody>
         <tr
-          *ngFor="let student of listStudents"
+          *ngFor="let student of listStudents | paginate : {itemsPerPage: 8 , currentPage:p}"
           [routerLink]="['/view/', student.studentId]"
         >
           <td width="260px">
@@ -58,6 +58,7 @@
           <td></td>
         </tr>
       </tbody>
+      <pagination-controls class="my-pagination"  (pageChange) ="p = $event"></pagination-controls>
     </table>
   </mat-card>
 </div>

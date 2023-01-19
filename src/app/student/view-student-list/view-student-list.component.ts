@@ -7,7 +7,7 @@ import { StudentService } from 'src/app/services/student.service';
 })
 export class ViewStudentListComponent implements OnInit {
   listStudents: any;
-
+  p: number = 1;
   constructor(private studentService: StudentService) {}
 
   ngOnInit(): void {

@@ -49,6 +49,8 @@ export class AddEditStudentComponent implements OnInit {
           this.editStudentForm = this.formBuilder.group({
             StudentId: new FormControl(this.studentDetails[0].studentId, [
               Validators.required,
+              Validators.minLength(3),
+              Validators.maxLength(10),
             ]),
             fName: new FormControl(this.studentDetails[0].fName, [
               Validators.required,

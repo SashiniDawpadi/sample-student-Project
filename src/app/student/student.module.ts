@@ -13,6 +13,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { RouterModule } from '@angular/router';
 import { AddEditStudentComponent } from './add-edit-student/add-edit-student.component';
 
@@ -35,6 +36,7 @@ import { AddEditStudentComponent } from './add-edit-student/add-edit-student.com
     MatTableModule,
     MatSnackBarModule,
     MatDatepickerModule,
+    NgxPaginationModule,
   ],
   exports: [
     DeleteStudentComponent,

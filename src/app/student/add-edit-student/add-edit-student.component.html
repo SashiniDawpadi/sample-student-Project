@@ -3,7 +3,7 @@
       <mat-card-title *ngIf="update">Update Student</mat-card-title>
       <mat-card-title *ngIf="add">Add Student</mat-card-title>
       <mat-card-content style="padding-top: 20px">
-        <form [formGroup]="editStudentForm" (submit)="updateStudent()">
+        <form [formGroup]="editStudentForm" (submit)="updateStudent()" autocomplete="off">
           <p>
             <mat-form-field appearance="outline">
               <mat-label>Student Id</mat-label>
@@ -13,7 +13,8 @@
                 formControlName="StudentId"
               />
               <mat-error *ngIf ="editStudentForm.controls['StudentId'].errors && editStudentForm.controls['StudentId'].hasError('required')">Student ID is required</mat-error>
-              
+              <mat-error *ngIf ="editStudentForm.controls['StudentId'].errors && editStudentForm.controls['StudentId'].hasError('minlength')">Student ID should be more than 3 characters</mat-error>
+              <mat-error *ngIf ="editStudentForm.controls['StudentId'].errors && editStudentForm.controls['StudentId'].hasError('maxlength')">Student ID can't exceed 10 characters</mat-error>
                </mat-form-field>
           </p>
   
